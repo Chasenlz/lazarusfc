@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazarus FC</title>
+    <style>
+        .digit {
+            transition: transform 0.2s, filter 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="glideTitle">Lazarus FC</h1>
+    <p>The world’s first Reddit community-owned Football Club</p>
+    <p>Breathing Life Back Into Armenian Football</p>
+    
+    <div>
+        <h2>Invest</h2>
+        <button id="investButton">Invest</button>
+        <p>Price per share: $<span id="sharePrice">75.00</span></p>
+    </div>
+    
+    <script>
+        const PROXIMITY_THRESHOLD = 10; // You can adjust this value
+        const glideTitle = document.getElementById("glideTitle");
+        const digits = glideTitle.querySelectorAll(".digit");
+
+        glideTitle.addEventListener("mousemove", (event) => {
+            const bounds = glideTitle.getBoundingClientRect();
+            const distance = Math.hypot(
+                event.x - (bounds.x + bounds.width * 0.5),
+                event.y - (bounds.y + bounds.height * 0.5)
+            );
+
+            if (distance > Math.max(bounds.width, bounds.height) * 0.5 + PROXIMITY_THRESHOLD) {
+                digits.forEach((digit) => {
+                    digit.style.transform = "scale(0.5)";
+                    digit.style.filter = "blur(1rem)";
+                });
+                return;
+            }
+
+            digits.forEach((digit) => {
+                const digitBounds = digit.getBoundingClientRect();
+                const digitDistance = Math.hypot(
+                    event.x - (digitBounds.x + digitBounds.width * 0.5),
+                    event.y - (digitBounds.y + digitBounds.height * 0.5)
+                );
+                const active = Math.min(1, Math.max(0, (250 - digitDistance) / 200));
+                digit.style.transform = `scale(${0.5 + active})`;
+                digit.style.filter = `blur(${1 - active * 1}rem)`;
+            });
+        });
+
+        glideTitle.addEventListener("mouseout", () => {
+            digits.forEach((digit) => {
+                digit.style.transform = "scale(0.5)";
+                digit.style.filter = "blur(1rem)";
+            });
+        });
+    </script>
+</body>
+</html>
