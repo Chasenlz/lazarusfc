@@ -1,12 +1,13 @@
 * {
   box-sizing: border-box;
+  font-family: "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui;
+  color: white; /* Set all text to white */
 }
 
 body {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  font-family: "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui;
   background: hsl(0 0% 0%);
   gap: 2rem;
 }
@@ -35,7 +36,7 @@ section {
 section p {
   margin: 0;
   font-size: 2.25rem;
-  color: hsl(0 0% 40%);
+  color: white; /* Set text to white */
   text-align: center;
   background: linear-gradient(hsl(0 0% 80%), hsl(0 0% 50%));
   color: transparent;
@@ -46,7 +47,7 @@ section p {
   font-size: 3rem;
   display: flex;
   flex-wrap: nowrap;
-  color: hsl(0 0% 100%);
+  color: white; /* Set text to white */
   border-radius: 1rem;
   background: hsl(0 0% 6%);
   justify-content: center;
@@ -55,6 +56,35 @@ section p {
 
 .code:hover {
   cursor: grab;
+}
+
+/* Style the "Invest" box similar to the "Lazarus FC" box */
+#investButton {
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 1rem;
+  background: hsl(0 0% 6%);
+  color: white;
+  font-size: 2rem;
+  margin: 10px;
+}
+
+/* Style the graph with white axes and a red graph line */
+#graph {
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 1rem;
+  color: white;
+  font-size: 2rem;
+  margin: 10px;
+}
+
+#graph .axis {
+  background-color: white;
+}
+
+#graph .graph-line {
+  background-color: red;
 }
 
 .digit {
