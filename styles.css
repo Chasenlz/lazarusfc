@@ -1,3 +1,40 @@
+/* Add your existing styles here */
+
+/* Your new styles */
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.col {
+  flex: 1;
+}
+
+.col p {
+  font-size: 1.5rem;
+  text-align: center;
+  color: white;
+}
+
+.graph-hours,
+.graph-growth {
+  width: 100%;
+  height: 300px;
+  background-color: #333;
+  border-radius: 10px;
+}
+
+.graph-hours {
+  background-color: #666;
+}
+
+/* Your old styles */
 * {
   box-sizing: border-box;
   font-family: "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui;
